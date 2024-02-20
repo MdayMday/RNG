@@ -1,0 +1,26 @@
+import random
+x = random.randint(1, 100)
+x = int(x)
+print(x)
+f = 0
+count = 0
+print("Take a guess!")
+s = int(input())
+count = count + 1
+if (s == x):
+    print("Good Job, you got the number! It took", count, "tries.")
+elif (s != x):
+
+    while (f != 5):
+        print("Take another guess!")
+        s = int(input())
+        if (s < x):
+            count = count + 1
+            print("Too low, you've guessed", count, "times.")
+        elif (s > x):
+            count = count + 1
+            print("Too high, you've guessed", count, "times.")
+        elif (s == x):
+            f = 5
+
+
