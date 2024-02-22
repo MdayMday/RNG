@@ -4,7 +4,7 @@ import random #this imports random
 GuessNumber = random.randint(1, 100) #generates the random number
 GuessNumber = int(GuessNumber) #turns that random number into an integer
 f = 0 #this sets up an escape from the while loop which comes later
-Count = 0 #this sets up count at 0 at the begining of the game
+Count = 0 #this sets up count at 0 at the beginning of the game
 print("Take a guess! The number is 1-100, you can only guess numbers.") #rules, you know this bit
 PlayerNumber = (input())
 PlayerNumber = int(PlayerNumber)
