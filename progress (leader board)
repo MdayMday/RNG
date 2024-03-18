@@ -1,0 +1,68 @@
+import time #import 
+start_time = time.time() #starts the timer
+import random #this imports random
+z = 0
+class User:
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def assign_score(self, score):
+        self.score = score
+
+    def display_properties(self):
+        print("Properties of the User:")
+        print("Name:", self.name)
+        print("Score:", self.score)
+
+def main():
+    print("please input your name")
+    name_input = input()
+    User[name_input] = User(name_input, 0)
+    GuessNumber = random.randint(1, 100) #generates the random number
+    GuessNumber = int(GuessNumber) #turns that random number into an integer
+    Count = 0 #this sets up count at 0 at the beginning of the game
+    f = 0
+    print("Take your first guess!")
+    PlayerNumber = int(input())
+    PlayerNumber = int(PlayerNumber)
+    Count = Count + 1
+    if (PlayerNumber == GuessNumber):
+        end_time = time.time()
+        elapsed_time  = end_time - start_time
+        print("Good Job, you got the number! It took", Count, "try, and", int(elapsed_time), 'seconds')
+    elif (PlayerNumber != GuessNumber):
+        while (f != 5):
+            print("Take another guess!")
+            PlayerNumber = int(input())
+            if (PlayerNumber < GuessNumber):
+                Count = Count + 1
+                print("Too low, you've guessed", Count, "times.")
+            elif (PlayerNumber > GuessNumber):
+             Count = Count + 1
+             print("Too high, you've guessed", Count, "times.")
+            elif (PlayerNumber == GuessNumber):
+             Count = Count + 1
+             end_time = time.time()
+             elapsed_time  = end_time - start_time
+             scoretime = int(elapsed_time * 10)
+             score = int(Count) * 100
+             User[name_input].assign_score(score + scoretime)
+             print("Good Job, you got the number! It took",Count, "tries, and", int(elapsed_time), "seconds. \n Your score has been added to the leader board as follows:")
+             User[name_input].display_properties()
+             f = open("demofile.txt", "w")
+             f.write(User[name_input] + ", " + str(score) + ",")
+             f.close()
+             f = 5
+    
+    f = 0
+
+while (z == 0):
+    print("Welcome to Guess the Number! The number is 1-100, you can only guess numbers. Would you like to play? \n 1. Yes \n 2. No")
+    menuanswer = int(input())
+    if (menuanswer == 1):
+        main()
+    if (menuanswer == 2):
+        print("Thank you for playing! (or not)")
+        quit()
